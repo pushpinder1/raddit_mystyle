@@ -1,8 +1,10 @@
+
+
+<div class="container">
 <p id="notice"><%= notice %></p>
-
-<h1>Listing Links</h1>
-
-<table>
+<p id="heading">Listing Links</p>
+<hr/>
+<table class="table table-bordered table-striped">
   <thead>
     <tr>
       <th>Title</th>
@@ -16,10 +18,10 @@
       <tr>
         <td><%= link.title %></td>
         <td><%= link.ur %></td>
-        <td><%= link_to 'Show', link %></td>
+        <td><%= link_to 'Show', link %>
         <% if link.user == current_user %>
-            <td><%= link_to 'Edit', edit_link_path(link) %></td>
-            <td><%= link_to 'Destroy', @link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <%= link_to 'Edit', edit_link_path(link) %>
+            <%= link_to 'Destroy', @link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
       </tr>
     <% end %>
@@ -27,4 +29,4 @@
 </table>
 
 <br>
-
+</div>

@@ -1,7 +1,9 @@
+<div class="container">
+
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Title:</strong>
+  <strong id="heading">Title</strong>
   <%= @link.title %>
 </p>
 
@@ -9,6 +11,13 @@
   <strong>Ur:</strong>
   <%= @link.ur %>
 </p>
+<div class="btn-group">
+ <% if @link.user == current_user %>
+          <button class="btn btn-primary">  <%= link_to 'Edit', edit_link_path(@link) %></button>
+         <button class="btn btn-primary">   <%= link_to 'Destroy', @link, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+        <% end %>
+      
+<button class="btn btn-primary"><%= link_to 'Back', links_path %></button>
+</div>
 
-<%= link_to 'Edit', edit_link_path(@link) %> |
-<%= link_to 'Back', links_path %>
+</div><!-- container -->

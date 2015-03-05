@@ -5,26 +5,78 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
 </head>
 <body>
 
-<% flash.each do |name, msg| %>
-<%= content_tag(:div, msg, class: "alert alert-#{name}") %>
-<% end %>
 
 
-<% if user_signed_in? %>     <!--check if users signed_in -->
-  <ul>
-    <li><%= link_to 'Submit link', new_link_path %></li>
-    <li><%= link_to 'Account', edit_user_registration_path %></li>
-    <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
-  </ul>
-<% else %>
-  <ul>
-    <li><%= link_to 'Sign up', new_user_registration_path %></li>
-    <li><%= link_to 'Sign in', new_user_session_path %></li>
-  </ul>
-<% end %>
+    <nav role="navigation" class="navbar navbar-inverse">
+
+        <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="container">
+          <div class="navbar-header">
+              <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+                  <span class="sr-only">Toggle navigation</span>
+
+                <span class="icon-bar"></span>
+
+                <span class="icon-bar"></span>
+
+                <span class="icon-bar"></span>
+
+            </button>
+
+            <a href="#" class="navbar-brand">Brand</a>
+
+        </div>
+
+        <!-- Collection of nav links and other content for toggling -->
+
+        <div id="navbarCollapse" class="collapse navbar-collapse">
+
+            <ul class="nav navbar-nav">
+
+                <li class="active"><a href="/">Home</a></li>
+
+                <li><a href="#">Profile</a></li>
+
+                <li><a href="#">Messages</a></li>
+
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+
+              <!--  <li><a href="#">Login</a></li>  -->
+
+                <% if user_signed_in? %>     <!--check if users signed_in -->
+  
+            <li><%= link_to 'Submit link', new_link_path %></li>
+            <li><%= link_to 'Account', edit_user_registration_path %></li>
+            <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
+  
+                  <% else %>
+  
+              <li><%= link_to 'Sign up', new_user_registration_path %></li>
+              <li><%= link_to 'Sign in', new_user_session_path %></li>
+  
+                  <% end %>
+
+
+
+
+
+
+
+
+
+            </ul>
+
+        </div>
+      </div> <!-- end of container -->
+
+    </nav>
+
 
 
 
